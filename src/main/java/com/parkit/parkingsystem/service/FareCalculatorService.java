@@ -24,6 +24,7 @@ public class FareCalculatorService {
         }
         
         double tauxHoraire = 1;
+	    if(duration>0.50) {
 	    	switch (ticket.getParkingSpot().getParkingType()){
 	            case CAR: {
 	            	tauxHoraire = Fare.CAR_RATE_PER_HOUR;
@@ -38,5 +39,9 @@ public class FareCalculatorService {
 	    	
 	    	double prix = duration * tauxHoraire;
 	    	ticket.setPrice(prix);
+	    }
+	    else {
+	    	ticket.setPrice(0);
+	    }
     }
 }
