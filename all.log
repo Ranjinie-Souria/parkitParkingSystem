@@ -1,25 +1,41 @@
-2022-03-24 13:59:16 INFO  DataBaseTestConfig:14 - Create DB connection
-2022-03-24 13:59:16 INFO  DataBaseTestConfig:24 - Closing DB connection
-2022-03-24 13:59:16 INFO  DataBaseTestConfig:14 - Create DB connection
-2022-03-24 13:59:16 INFO  DataBaseTestConfig:46 - Closing Result Set
-2022-03-24 13:59:16 INFO  DataBaseTestConfig:35 - Closing Prepared Statement
-2022-03-24 13:59:16 INFO  DataBaseTestConfig:24 - Closing DB connection
-2022-03-24 13:59:16 INFO  DataBaseTestConfig:14 - Create DB connection
-2022-03-24 13:59:16 INFO  DataBaseTestConfig:46 - Closing Result Set
-2022-03-24 13:59:16 INFO  DataBaseTestConfig:35 - Closing Prepared Statement
-2022-03-24 13:59:16 INFO  DataBaseTestConfig:24 - Closing DB connection
-2022-03-24 13:59:16 INFO  DataBaseTestConfig:14 - Create DB connection
-2022-03-24 13:59:17 INFO  DataBaseTestConfig:35 - Closing Prepared Statement
-2022-03-24 13:59:17 INFO  DataBaseTestConfig:24 - Closing DB connection
-2022-03-24 13:59:17 INFO  DataBaseTestConfig:14 - Create DB connection
-2022-03-24 13:59:17 INFO  DataBaseTestConfig:24 - Closing DB connection
-2022-03-24 13:59:17 INFO  DataBaseTestConfig:14 - Create DB connection
-2022-03-24 13:59:17 INFO  DataBaseTestConfig:46 - Closing Result Set
-2022-03-24 13:59:17 INFO  DataBaseTestConfig:35 - Closing Prepared Statement
-2022-03-24 13:59:17 INFO  DataBaseTestConfig:24 - Closing DB connection
-2022-03-24 13:59:17 INFO  DataBaseTestConfig:14 - Create DB connection
-2022-03-24 13:59:17 INFO  DataBaseTestConfig:46 - Closing Result Set
-2022-03-24 13:59:17 INFO  DataBaseTestConfig:35 - Closing Prepared Statement
-2022-03-24 13:59:17 INFO  DataBaseTestConfig:24 - Closing DB connection
-2022-03-24 13:59:17 INFO  DataBaseTestConfig:14 - Create DB connection
-2022-03-24 13:59:17 INFO  DataBaseTestConfig:24 - Closing DB connection
+2022-03-24 14:58:46 INFO  FareCalculatorServiceTest:34 - Setting up the Fare Calculator Service
+2022-03-24 14:58:46 INFO  FareCalculatorServiceTest:40 - Creating a new Ticket
+2022-03-24 14:58:46 INFO  FareCalculatorServiceTest:40 - Creating a new Ticket
+2022-03-24 14:58:46 INFO  DataBaseConfig:13 - Create DB connection
+2022-03-24 14:58:47 INFO  DataBaseConfig:45 - Closing Result Set
+2022-03-24 14:58:47 INFO  DataBaseConfig:34 - Closing Prepared Statement
+2022-03-24 14:58:47 INFO  DataBaseConfig:23 - Closing DB connection
+2022-03-24 14:58:47 INFO  FareCalculatorServiceTest:40 - Creating a new Ticket
+2022-03-24 14:58:47 INFO  DataBaseConfig:13 - Create DB connection
+2022-03-24 14:58:47 INFO  DataBaseConfig:45 - Closing Result Set
+2022-03-24 14:58:47 INFO  DataBaseConfig:34 - Closing Prepared Statement
+2022-03-24 14:58:47 INFO  DataBaseConfig:23 - Closing DB connection
+2022-03-24 14:58:47 INFO  FareCalculatorServiceTest:40 - Creating a new Ticket
+2022-03-24 14:58:47 INFO  DataBaseConfig:13 - Create DB connection
+2022-03-24 14:58:47 INFO  DataBaseConfig:45 - Closing Result Set
+2022-03-24 14:58:47 INFO  DataBaseConfig:34 - Closing Prepared Statement
+2022-03-24 14:58:47 INFO  DataBaseConfig:23 - Closing DB connection
+2022-03-24 14:58:47 INFO  FareCalculatorServiceTest:40 - Creating a new Ticket
+2022-03-24 14:58:47 INFO  DataBaseConfig:13 - Create DB connection
+2022-03-24 14:58:47 INFO  DataBaseConfig:23 - Closing DB connection
+2022-03-24 14:58:47 INFO  DataBaseConfig:13 - Create DB connection
+2022-03-24 14:58:47 INFO  DataBaseConfig:45 - Closing Result Set
+2022-03-24 14:58:47 INFO  DataBaseConfig:34 - Closing Prepared Statement
+2022-03-24 14:58:47 INFO  DataBaseConfig:23 - Closing DB connection
+2022-03-24 14:58:47 INFO  FareCalculatorServiceTest:40 - Creating a new Ticket
+2022-03-24 14:58:47 INFO  FareCalculatorServiceTest:40 - Creating a new Ticket
+2022-03-24 14:58:47 INFO  DataBaseConfig:13 - Create DB connection
+2022-03-24 14:58:47 INFO  DataBaseConfig:45 - Closing Result Set
+2022-03-24 14:58:47 INFO  DataBaseConfig:34 - Closing Prepared Statement
+2022-03-24 14:58:47 INFO  DataBaseConfig:23 - Closing DB connection
+2022-03-24 14:58:47 INFO  FareCalculatorServiceTest:40 - Creating a new Ticket
+2022-03-24 14:58:47 INFO  DataBaseConfig:13 - Create DB connection
+2022-03-24 14:58:47 INFO  DataBaseConfig:45 - Closing Result Set
+2022-03-24 14:58:47 INFO  DataBaseConfig:34 - Closing Prepared Statement
+2022-03-24 14:58:47 INFO  DataBaseConfig:23 - Closing DB connection
+2022-03-24 14:58:47 INFO  FareCalculatorServiceTest:40 - Creating a new Ticket
+2022-03-24 14:58:48 ERROR ParkingService:71 - Error fetching next available parking slot
+2022-03-24 14:58:48 INFO  DataBaseConfig:13 - Create DB connection
+2022-03-24 14:58:48 INFO  DataBaseConfig:45 - Closing Result Set
+2022-03-24 14:58:48 INFO  DataBaseConfig:34 - Closing Prepared Statement
+2022-03-24 14:58:48 INFO  DataBaseConfig:23 - Closing DB connection
