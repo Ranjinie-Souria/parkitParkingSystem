@@ -1,14 +1,18 @@
 package com.parkit.parkingsystem.util;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.util.Scanner;
 
 public class InputReaderUtil {
 
-    private static Scanner scan = new Scanner(System.in);
+    private Scanner scan = null;
     private static final Logger logger = LogManager.getLogger("InputReaderUtil");
+    
+
+    public InputReaderUtil(Scanner scan) {
+    	this.scan = scan;
+	}
+
 
     public int readSelection() {
         try {
@@ -20,6 +24,7 @@ public class InputReaderUtil {
             return -1;
         }
     }
+
 
     public String readVehicleRegistrationNumber() throws Exception {
         try {
