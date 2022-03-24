@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import com.parkit.parkingsystem.constants.Fare;
+import com.parkit.parkingsystem.dao.TicketDAO;
 import com.parkit.parkingsystem.model.Ticket;
 
 public class FareCalculatorService {
@@ -24,6 +25,7 @@ public class FareCalculatorService {
         }
         
         double tauxHoraire = 1;
+        double reduction = 1;
 	    if(duration>0.50) {
 	    	switch (ticket.getParkingSpot().getParkingType()){
 	            case CAR: {
@@ -37,7 +39,13 @@ public class FareCalculatorService {
 	            default: throw new IllegalArgumentException("Unknown Parking Type");
 	        }
 	    	
-	    	double prix = duration * tauxHoraire;
+	    	TicketDAO dao = new TicketDAO();
+	    	if(dao.isKnownUser(ticket)) {
+	    		//Known users get a 5% reduction
+	    		reduction = 0.95;
+	    	}
+	    	
+	    	double prix = duration * tauxHoraire * reduction;
 	    	ticket.setPrice(prix);
 	    }
 	    else {

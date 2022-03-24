@@ -19,7 +19,8 @@ public class TicketDAO {
 
     public DataBaseConfig dataBaseConfig = new DataBaseConfig();
 
-    public boolean saveTicket(Ticket ticket){
+    @SuppressWarnings("finally")
+	public boolean saveTicket(Ticket ticket){
         Connection con = null;
         try {
             con = dataBaseConfig.getConnection();
@@ -40,7 +41,8 @@ public class TicketDAO {
         }
     }
 
-    public Ticket getTicket(String vehicleRegNumber) {
+    @SuppressWarnings("finally")
+	public Ticket getTicket(String vehicleRegNumber) {
         Connection con = null;
         Ticket ticket = null;
         try {
@@ -85,5 +87,33 @@ public class TicketDAO {
             dataBaseConfig.closeConnection(con);
         }
         return false;
+    }
+    
+    public boolean isKnownUser(Ticket ticket) {
+    	Connection con = null;
+        try {
+            con = dataBaseConfig.getConnection();
+            PreparedStatement ps = con.prepareStatement(DBConstants.GET_KNOWN_USER);
+            ps.setString(1,ticket.getVehicleRegNumber());
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+	            if(rs.getInt(1)>1) {
+		            System.out.println("You are a reccuring user, you parked here "+rs.getInt(1)+" times.");
+	            	dataBaseConfig.closeResultSet(rs);
+	                dataBaseConfig.closePreparedStatement(ps);
+	            	return true;            	
+	            }
+	            else {
+	            	dataBaseConfig.closeResultSet(rs);
+	                dataBaseConfig.closePreparedStatement(ps);
+	            	return false;
+	            }
+            }
+        }catch (Exception ex){
+            logger.error("Error fetching user",ex);
+        }finally {
+            dataBaseConfig.closeConnection(con);   
+        }
+		return false;
     }
 }

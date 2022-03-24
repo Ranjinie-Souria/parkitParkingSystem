@@ -2,6 +2,7 @@ package com.parkit.parkingsystem;
 
 import com.parkit.parkingsystem.constants.Fare;
 import com.parkit.parkingsystem.constants.ParkingType;
+import com.parkit.parkingsystem.dao.TicketDAO;
 import com.parkit.parkingsystem.model.ParkingSpot;
 import com.parkit.parkingsystem.model.Ticket;
 import com.parkit.parkingsystem.service.FareCalculatorService;
@@ -23,6 +24,7 @@ public class FareCalculatorServiceTest {
 		private static final Logger logger = LogManager.getLogger("FareCalculatorServiceTest");
 	    private static FareCalculatorService fareCalculatorService;
 	    private Ticket ticket;
+	    private static TicketDAO ticketDAO;
 
 	    @Mock
 	    private static InputReaderUtil inputReaderUtil;
@@ -31,6 +33,7 @@ public class FareCalculatorServiceTest {
 	    private static void setUp() {
 	    	logger.info("Setting up the Fare Calculator Service");
 	        fareCalculatorService = new FareCalculatorService();
+	        ticketDAO = new TicketDAO();
 	    }
 	    @BeforeEach
 	    private void setUpPerTest(){
@@ -165,5 +168,40 @@ public class FareCalculatorServiceTest {
 	       fareCalculatorService.calculateFare(ticket);
 	       Assertions.assertEquals((0 * Fare.CAR_RATE_PER_HOUR), ticket.getPrice());
 	    }
+	    
+	       @Test
+	       @Tag("FareCalculatorService")
+	       @DisplayName("Checking if the users are correctly getting a discount if they already parked here before")
+	       public void checkDiscountRecurringUsersBike() throws Exception{
+	       	/*Old ticket*/
+	       	//A bike parked 1h ago for 30min
+	           Date inTime1 = new Date();
+	           inTime1.setTime( (System.currentTimeMillis() - (  30 * 60 * 1000)) - (  30 * 60 * 1000) );
+	           Date outTime1 = new Date();
+	           outTime1.setTime( System.currentTimeMillis() - (  30 * 60 * 1000) );
+	           ParkingSpot parkingSpot1 = new ParkingSpot(1, ParkingType.BIKE,false);
+	           ticket.setInTime(inTime1);
+	           ticket.setOutTime(outTime1);
+	           ticket.setParkingSpot(parkingSpot1);
+	           ticket.setVehicleRegNumber("ABCDEF");
+	           fareCalculatorService.calculateFare(ticket);
+	           ticketDAO.saveTicket(ticket);
+	           /*New ticket*/
+	           //The bike parks again for 30min
+	           Date inTime = new Date();
+	           inTime.setTime( System.currentTimeMillis() - (  45 * 60 * 1000) );//45 minutes parking time
+	           Date outTime = new Date();
+	           ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.BIKE,false);
+	           Ticket newTicket = new Ticket();
+	           newTicket.setInTime(inTime1);
+	           newTicket.setOutTime(outTime1);
+	           newTicket.setParkingSpot(parkingSpot1);
+	           newTicket.setVehicleRegNumber("ABCDEF");
+	           newTicket.setInTime(inTime);
+	           newTicket.setOutTime(outTime);
+	           newTicket.setParkingSpot(parkingSpot);
+	           fareCalculatorService.calculateFare(newTicket);
+	           Assertions.assertEquals(((0.75 * Fare.BIKE_RATE_PER_HOUR)*0.95),newTicket.getPrice());
+	       }
 
 }
